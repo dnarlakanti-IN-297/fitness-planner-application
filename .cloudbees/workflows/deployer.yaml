@@ -13,7 +13,7 @@ on:
         required: true
 
 jobs:
-  fitness-planner-dnarlakanti_fitness-planner:
+  deploy-github:
     if: ${{ fromJSON(inputs.manifest)['fitness-planner']['dnarlakanti/fitness-planner'].deploy }}
     uses: dnarlakanti-IN-297/fitness-planner/.cloudbees/workflows/deploy.yaml
     with:
@@ -21,7 +21,7 @@ jobs:
       environment: ${{ inputs.environment }}
     secrets: inherit
     vars: inherit
-  fitness-planner-docker_io_dnarlakanti_fitness-planner:
+  deploy-dockerhub:
     if: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].deploy }}
     uses: dnarlakanti-IN-297/fitness-planner/.cloudbees/workflows/deploy.yaml
     with:

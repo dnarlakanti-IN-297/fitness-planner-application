@@ -19,13 +19,13 @@ jobs:
     with:
       artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['dnarlakanti/fitness-planner'].id }}
       environment: ${{ inputs.environment }}
-      secrets: inherit
-      vars: inherit
+    secrets: inherit
+    vars: inherit
   fitness-planner-docker_io_dnarlakanti_fitness-planner:
     if: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].deploy }}
     uses: dnarlakanti-IN-297/fitness-planner/.cloudbees/workflows/deploy.yaml
     with:
       artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].id }}
       environment: ${{ inputs.environment }}
-      secrets: inherit
-      vars: inherit
+    secrets: inherit
+    vars: inherit

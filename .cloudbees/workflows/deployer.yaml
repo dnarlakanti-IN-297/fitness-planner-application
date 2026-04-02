@@ -19,8 +19,8 @@
       with:                                                                                                                                                                            
         artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['dnarlakanti/fitness-planner'].id }}                                                                             
         environment: ${{ inputs.environment }}    
-      secrets:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}                                                                                                                              
+      secrets: inherit
+      vars: inherit
                                                                                                                                                                                        
     deploy-dockerhub:                                                                                                                                                                  
       if: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].deploy }}                                                                                                                                                                                                                
@@ -28,5 +28,5 @@
       with:                                                                                                                                                                            
         artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].id }}                                                                   
         environment: ${{ inputs.environment }}
-      secrets:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}
+      secrets: inherit
+      vars: inherit

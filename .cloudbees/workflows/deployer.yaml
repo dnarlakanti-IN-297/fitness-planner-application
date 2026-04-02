@@ -14,8 +14,7 @@
                                                                                                                                                                                        
   jobs:           
     deploy-github:                                                                                                                                                                     
-      if: ${{ fromJSON(inputs.manifest)['fitness-planner']['dnarlakanti/fitness-planner'].deploy }}                                                                                    
-      environment: ${{ inputs.environment }}                                                                                                                                           
+      if: ${{ fromJSON(inputs.manifest)['fitness-planner']['dnarlakanti/fitness-planner'].deploy }}                                                                                                                                                                                                                              
       uses: dnarlakanti-IN-297/fitness-planner/.cloudbees/workflows/deploy.yaml@main                                                                                                   
       with:                                                                                                                                                                            
         artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['dnarlakanti/fitness-planner'].id }}                                                                             
@@ -24,8 +23,7 @@
         KUBECONFIG: ${{ secrets.KUBECONFIG }}                                                                                                                              
                                                                                                                                                                                        
     deploy-dockerhub:                                                                                                                                                                  
-      if: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].deploy }}                                                                          
-      environment: ${{ inputs.environment }}                                                                                                                                           
+      if: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].deploy }}                                                                                                                                                                                                                
       uses: dnarlakanti-IN-297/fitness-planner/.cloudbees/workflows/deploy.yaml@main                                                                                                   
       with:                                                                                                                                                                            
         artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].id }}                                                                   

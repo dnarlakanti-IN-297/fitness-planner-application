@@ -17,6 +17,7 @@
       if: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].deploy }}
       uses: dnarlakanti-IN-297/fitness-planner/.cloudbees/workflows/deploy.yaml
       with:
+        artifact-url: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].url }}
         artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].id }}
         environment: ${{ inputs.environment }}
       secrets: inherit

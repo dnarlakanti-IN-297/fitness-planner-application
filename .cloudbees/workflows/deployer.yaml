@@ -20,8 +20,9 @@
       with:                                                                                                                                                                            
         artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['dnarlakanti/fitness-planner'].id }}                                                                             
         environment: ${{ inputs.environment }}    
-      secrets: inherit
-      vars: inherit                                                                                                                                     
+      secrets:
+        KUBECONFIG: ${{ secrets.KUBECONFIG }}                                                                                                                                          
+        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}                                                                                                                                   
                                                                                                                                                                                        
     deploy-dockerhub:                                                                                                                                                                  
       if: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].deploy }}                                                                          
@@ -30,5 +31,6 @@
       with:                                                                                                                                                                            
         artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].id }}                                                                   
         environment: ${{ inputs.environment }}
-      secrets: inherit
-      vars: inherit 
+      secrets:
+        KUBECONFIG: ${{ secrets.KUBECONFIG }}                                                                                                                                          
+        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}        

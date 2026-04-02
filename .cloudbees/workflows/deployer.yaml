@@ -21,8 +21,7 @@
         artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['dnarlakanti/fitness-planner'].id }}                                                                             
         environment: ${{ inputs.environment }}    
       secrets:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}                                                                                                                                          
-        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}                                                                                                                                   
+        KUBECONFIG: ${{ secrets.KUBECONFIG }}                                                                                                                              
                                                                                                                                                                                        
     deploy-dockerhub:                                                                                                                                                                  
       if: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].deploy }}                                                                          
@@ -32,5 +31,4 @@
         artifact-id: ${{ fromJSON(inputs.manifest)['fitness-planner']['docker.io/dnarlakanti/fitness-planner'].id }}                                                                   
         environment: ${{ inputs.environment }}
       secrets:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}                                                                                                                                          
-        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}        
+        KUBECONFIG: ${{ secrets.KUBECONFIG }}

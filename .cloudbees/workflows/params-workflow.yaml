@@ -9,7 +9,11 @@ on:
         required: true
         description: This is a system-generated parameter and is required for use in application releases. Refer to https://docs.cloudbees.com/docs/cloudbees-platform/latest/applications/releases#manifest for the expected format
       environment:
-        type: string
+        type: choice
+        options:
+          - qa
+          - staging
+          - production
         default: qa
         description: Target environment
 metadata:
